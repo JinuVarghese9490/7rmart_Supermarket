@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="Suite">
+
+	<test thread-count="5" name="ChromTest">
+		<classes>
+			<class name="testscript.LoginTest">
+				<methods>
+					<include name="verifyUserLoginWithValidUserNameAndPassword"></include>
+				</methods>
+			</class>
+		</classes>
+	</test> <!-- Test -->
+	<parameter name="browser" value="Chrome"></parameter>
+	<listeners>
+		<listener class-name="listeners.Listeners"></listener>
+	</listeners>
+	<test thread-count="5" name="EdgeTest">
+		<classes>
+			<class name="testscript.LoginTest">
+				<methods>
+					<include name="verifyUserLoginWithValidUserNameAndPassword"></include>
+				</methods>
+			</class>
+		</classes>
+	</test> <!-- Test -->
+	<parameter name="browser" value="Edge"></parameter>
+	<listeners>
+		<listener class-name="listeners.Listeners"></listener>
+	</listeners>
+</suite> <!-- Suite -->

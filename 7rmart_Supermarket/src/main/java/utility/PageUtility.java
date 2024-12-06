@@ -11,6 +11,10 @@ import org.openqa.selenium.support.ui.Select;
 public class PageUtility {
 
 	// Action
+	public void clickOnElement(WebElement element, WebDriver driver) {
+		Actions actions = new Actions(driver);
+		actions.click().build().perform();
+	}
 	public void clickAndHoldOnElement(WebElement element, WebDriver driver) {
 		Actions actions = new Actions(driver);
 		actions.clickAndHold(element).build().perform();
@@ -113,4 +117,9 @@ public class PageUtility {
 		driver.navigate().forward();
 	}
 
+	public void clearField(WebElement element) {
+		element.clear();
+		
+	}
+	
 }

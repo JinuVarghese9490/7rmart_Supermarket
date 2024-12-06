@@ -6,7 +6,7 @@ import pages.AdminUsersPage;
 import utility.ExcelUtility;
 
 public class AdminUsersTest extends Base {
-	@Test
+	@Test(description="This is for add a new user name and password")
 
 	public void verifyWhethertheUsercanAddaNewUsernameandPasswordtotheAdminUsersList() {
 

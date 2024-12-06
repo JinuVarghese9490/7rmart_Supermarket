@@ -6,9 +6,9 @@ import pages.ListCategoryPage;
 import utility.ExcelUtility;
 
 public class ListCategoryTest extends Base {
-	@Test
+	@Test(description="This is for view the status and enter a new categories such as category name and uploadin a file")
 
-	public void veryfyUserViewandEditListCategoryPage() {
+	public void veryfyUsercanViewStatusandAddnNewCategorytoListCategoryPage() {
 
 		String userName =ExcelUtility.getString(1, 0,"LoginPage");
 		String password = ExcelUtility.getString(1, 1, "LoginPage");
@@ -18,13 +18,10 @@ public class ListCategoryTest extends Base {
 		listcategorypage.clickonSigninButton();
 		listcategorypage.clickonCategoryMoreInfoButton();
 		listcategorypage.clickonActiveField();
-		listcategorypage.clickonDeleteButton();
-		String deleteAlert = listcategorypage.deleteAlertStatusAvailable();
 		listcategorypage.clickonEditIcon();
 		listcategorypage.scrollDown();
 		listcategorypage.clickonChooseFile();
 		listcategorypage.clickonUpdateIcon();
-		String alertStatus = listcategorypage.alertStatusAvailable();
 		boolean isCategoryListUpdated=listcategorypage.isAddingItemSuccefully();
 		Assert.assertTrue(isCategoryListUpdated, "Category updation failed");
 

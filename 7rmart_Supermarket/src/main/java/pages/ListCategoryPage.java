@@ -4,6 +4,7 @@ import java.awt.AWTException;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
@@ -36,17 +37,11 @@ public class ListCategoryPage {
 	private WebElement listCategoriesElement;
 	@FindBy(xpath = "(//span[@class='badge bg-success'])[1]")
 	private WebElement activeField;
-	@FindBy(xpath = "//div[@class='alert alert-success alert-dismissible']")
-	private WebElement alertSuccess;
-	@FindBy(xpath = "(//i[@class='fas fa-trash-alt'])[4]")
-	private WebElement deleteIcon;
-	@FindBy(xpath = "//div[@class='alert alert-success alert-dismissible']")
-	private WebElement deleteAlertIcon;
 	@FindBy(xpath = "(//i[@class='fas fa-edit'])[1]")
 	private WebElement editIcon;
-	@FindBy(xpath = "//input[@id='main_img']")
+	@FindBy(xpath = "//input[@type='file']")
 	private WebElement chooseFile;
-	@FindBy(xpath = "//button[@name='update']")
+	@FindBy(xpath = "//button[text()='Update']")
 	private WebElement updateImg;
 	@FindBy(xpath = "//div[@class='alert alert-success alert-dismissible']")
 	private WebElement additionSuccessAlert;
@@ -81,23 +76,6 @@ public class ListCategoryPage {
 		activeField.click();
 	}
 
-	public String alertStatusAvailable() {
-		String text = alertSuccess.getText();
-		String alertTextIs = text.substring(9);
-		return alertTextIs;
-	}
-
-	public void clickonDeleteButton() {
-		deleteIcon.click();
-		driver.switchTo().alert().accept();
-	}
-
-	public String deleteAlertStatusAvailable() {
-		String deleteText = deleteAlertIcon.getText();
-		String deleleteAlertTextIs = deleteText.substring(9);
-		return deleleteAlertTextIs;
-	}
-
 	public void clickonEditIcon() {
 		editIcon.click();
 
@@ -110,11 +88,7 @@ public class ListCategoryPage {
 
 	public void clickonChooseFile() {
 		FileUploadUtility fileuploading = new FileUploadUtility();
-		try {
-			fileuploading.verifyFileUploadUsingRobotclass(chooseFile,Constants.TESTDATAPIC);
-		} catch (AWTException e) {
-			e.printStackTrace();
-		}
+		fileuploading.verifyFileUploadusingSendKeys(chooseFile,Constants.TESTDATAPIC);
 	}
 
 	public void clickonUpdateIcon() {
@@ -126,4 +100,5 @@ public class ListCategoryPage {
 		return isAddingSuccessAlertDisplayed;
 	}
 
+	
 }
