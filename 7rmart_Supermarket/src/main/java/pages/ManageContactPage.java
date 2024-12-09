@@ -9,7 +9,7 @@ import utility.PageUtility;
 import utility.RandomUtility;
 import utility.WaitUtility;
 
-public class ContactUsPage {
+public class ManageContactPage {
 	
 	
 	WaitUtility waitutility=new WaitUtility();
@@ -18,19 +18,12 @@ public class ContactUsPage {
 	
 	public WebDriver driver;
 	
-	public ContactUsPage(WebDriver driver)
+	public ManageContactPage(WebDriver driver)
 	{
 		this.driver=driver;
 		PageFactory.initElements(driver,this);
 	}
 
-	@FindBy(xpath = "//input[@class='form-control' and @placeholder='Username']")
-	private WebElement userNameField;
-	@FindBy(xpath = "//input[@class='form-control' and @placeholder='Password']")
-	private WebElement passwordField;
-	@FindBy(xpath = "//button[@class='btn btn-dark btn-block']")
-	private WebElement signinButton;
-	
 	@FindBy(xpath = "(//a[@class='small-box-footer'])[5]")
 	private WebElement manageContactMoreInfo;
 	@FindBy(className = "fa-edit") 
@@ -52,61 +45,59 @@ public class ContactUsPage {
 	@FindBy(xpath = "//div[@class='alert alert-success alert-dismissible']")
 	private WebElement alert;
 	
-
-	public void enterUserNameOnUserNameField(String userName) {
-		userNameField.sendKeys(userName);
-		}
-	public void enterPasswordOnPasswordField(String password) {
-		passwordField.sendKeys(password);
-	}
-    public void clickonSigninButton() {
-    	waitutility.waitForElement2(driver, signinButton);
-		signinButton.click();
-	}
-    public void clickonManageContactMoreInfoButton() {
-    	waitutility.waitForElement2(driver, manageContactMoreInfo);
+	
+    public ManageContactPage clickonManageContactMoreInfoButton() {
+    	waitutility.waitForElementToBeClickable(driver, manageContactMoreInfo);
     	manageContactMoreInfo.click();
+    	return this;
 	}
-    public void clickonActionIcon() {
-    	waitutility.waitForElement2(driver, actionIcon);
+    public ManageContactPage clickonActionIcon() {
+    	waitutility.waitForElementToBeClickable(driver, actionIcon);
     	actionIcon.click();
+    	return this;
 	}
-    public void phoneField() {
+    public ManageContactPage phoneField() {
     	pageutility.clearField(phone);
     	String phoneNumber=randomutility.createRandomPnoneNumber();
     	phone.sendKeys(phoneNumber);
+    	return this;
     }
-    public void emailField() {
+    public ManageContactPage emailField() {
     	pageutility.clearField(email);
     	String emailId=randomutility.createRandomEmailAddress();
     	email.sendKeys(emailId);
+    	return this;
     }
-    public void addressField() {
+    public ManageContactPage addressField() {
     	pageutility.clearField(adress);
     	String adresses=randomutility.createRandomAddress();
     	adress.sendKeys(adresses);
+    	return this;
     }
-    public void deliveryTimeField() {
+    public ManageContactPage deliveryTimeField() {
     	pageutility.clearField(deliveryTime);
     	int deliveryTimes=randomutility.createRandomTimeAdjust();
     	String time=Integer.toString(deliveryTimes);
     	deliveryTime.sendKeys(time);
+    	return this;
     }
-    public void deliveryChargeLimitField() {
+    public ManageContactPage deliveryChargeLimitField() {
     	pageutility.clearField(deliveryChargeLimit);
     	int deliveryChargeTaken=randomutility.createRandomAmount();
     	String charge=Integer.toString(deliveryChargeTaken);
     	deliveryChargeLimit.sendKeys(charge);
+    	return this;
     }
-    public void scrollDown() {
-    	waitutility.waitForElement3(driver, "//a[@class='btn btn-default btn-fix']");
-    	pageutility.javaScriptExecutorSample1(driver);
+    public ManageContactPage scrollDown() {
+    	waitutility.waitForPresenceOfElementLocated(driver, "//a[@class='btn btn-default btn-fix']");
+    	pageutility.javaScriptExecutorSimpleScrollfromTopToBottom(driver);
+    	return this;
     }
-    public void clickonUpdateIcon()
+    public ManageContactPage clickonUpdateIcon()
     {
-    	waitutility.waitForElement5(driver, update);
-    	waitutility.waitForElement2(driver,update);
+    	waitutility.waitForElementToBeClickable(driver,update);
     	update.click();
+		return this;
     }
     public boolean isAlertAvailable()
     {

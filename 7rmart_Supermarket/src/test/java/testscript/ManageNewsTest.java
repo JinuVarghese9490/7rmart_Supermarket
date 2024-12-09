@@ -1,38 +1,29 @@
 package testscript;
 
-import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
+import pages.LoginPage;
 import pages.ManageNewsPage;
 import utility.ExcelUtility;
 
-public class ManageNewsTest {
+public class ManageNewsTest extends Base{
 	
-	@Test(groups="smoke")
+	@Test(groups="smoke",description="This for updaing new news informations",retryAnalyzer=retry.Retry.class)
 	
-	public void verifyUsercanEnterNewNewsInformations(WebDriver driver)
+	public void verifyUsercanEnterNewNewsInformations()
 	{
-		String text="how old are you";
+		
 		String userName = ExcelUtility.getString(1, 0, "LoginPage");
 		String password = ExcelUtility.getString(1, 1, "LoginPage");
+		LoginPage loginpage = new LoginPage(driver);
+		loginpage.enterUserNameOnUserNameField(userName).enterPasswordOnPasswordField(password)
+		.clickonSigninButton();
 		ManageNewsPage managenewspage=new ManageNewsPage(driver);
-		managenewspage.enterUserNameOnUserNameField(userName);
-		managenewspage.enterPasswordOnPasswordField(password);
-		managenewspage.clickonSigninButton();
-		//managenewspage.clickonmanageNewsButton();
-		managenewspage.manageNewsButton();
-		managenewspage.clickNewButton();
-		managenewspage.enterTheNews(text);
-		managenewspage.clickOnSave();
-		boolean isNavigatedToAlert=managenewspage.alerIstDisplayed();
-		Assert.assertTrue(isNavigatedToAlert, "New news cannot be added");
-		
-		
-		}
-
-		
-		
+		managenewspage.clickOnManageNewsButton().clickNewButton().enterTheNews().clickOnSave();
+		boolean isNewsCreatedSuccessfully=managenewspage.isalertAvailable();
+		Assert.assertTrue(isNewsCreatedSuccessfully, "NewsUpdated Failed");
 	}
+}
 
 

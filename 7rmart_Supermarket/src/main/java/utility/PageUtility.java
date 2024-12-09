@@ -1,8 +1,12 @@
 package utility;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
+import org.openqa.selenium.SearchContext;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
@@ -13,7 +17,7 @@ public class PageUtility {
 	// Action
 	public void clickOnElement(WebElement element, WebDriver driver) {
 		Actions actions = new Actions(driver);
-		actions.click().build().perform();
+		actions.click(element).build().perform();
 	}
 	public void clickAndHoldOnElement(WebElement element, WebDriver driver) {
 		Actions actions = new Actions(driver);
@@ -67,27 +71,27 @@ public class PageUtility {
 	}
 
 	// Scrolling
-	public void javaScriptExecutorSample1(WebDriver driver) {
+	public void javaScriptExecutorSimpleScrollfromTopToBottom(WebDriver driver) {
 		JavascriptExecutor js = (JavascriptExecutor) driver;
 		js.executeScript("window.scrollBy(0,350)", "");// scrolled from top to bottom
 	}
 
-	public void javaScriptExecutorSample2(WebDriver driver, WebElement element) {
+	public void javaScriptExecutorUsingElement(WebDriver driver, WebElement element) {
 		JavascriptExecutor js = (JavascriptExecutor) driver;
 		js.executeScript("arguments[0].click();", element);
 	}
 
-	public void javaScriptExecutorSample3(WebDriver driver) {
+	public void javaScriptExecutorScrollFromBottomtoTop(WebDriver driver) {
 		JavascriptExecutor js = (JavascriptExecutor) driver;
 		js.executeScript("window.scrollBy(0,-350)", "");// scrolled from bottom to top
 	}
 
-	public void javaScriptExecutorSample4(WebDriver driver, WebElement element) {
+	public void javaScriptExecutorScrollIntoView(WebDriver driver, WebElement element) {
 		JavascriptExecutor js = (JavascriptExecutor) driver;
 		js.executeScript("arguments[0].scrollIntoView();", element);
 	}
 
-	public void javaScriptExecutorSample5(WebDriver driver) {
+	public void javaScriptExecutorScrollToTheEnd(WebDriver driver) {
 		JavascriptExecutor js = (JavascriptExecutor) driver;
 		js.executeScript("window.scrollBy(0,document.body.scrollHeight)"); // scrolled to the end
 	}
@@ -121,5 +125,31 @@ public class PageUtility {
 		element.clear();
 		
 	}
+	public List<String> tableSample(WebDriver driver,String element) {
+		
+		List <WebElement> tableHeadings=driver.findElements(By.xpath(element));
+		List<String> tableHead=new ArrayList();
+		for(WebElement headings:tableHeadings)
+		{
+			String table=headings.getText();
+			tableHead.add(table);
+		}
+		return tableHead;
+	}
 	
+	
+	
+	
+	public boolean findElementfromTableSample2(List<String> productsNames, String searchTitle, By driver) {
+		List<WebElement> findName=driver.findElements((SearchContext) By.xpath(searchTitle));
+		
+	List <String> nameList=new ArrayList();
+           for(WebElement identifyName:findName)
+	{
+		String name=identifyName.getText();
+		nameList.add(name);
+	}
+           boolean isPresent= nameList.contains("Organic Chilly Powder");
+          return isPresent;
+	}
 }

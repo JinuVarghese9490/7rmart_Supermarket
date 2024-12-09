@@ -5,27 +5,17 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
-import com.github.javafaker.Number;
-
 import utility.PageUtility;
 import utility.RandomUtility;
 
 public class AdminUsersPage {
 
-	RandomUtility randomutility=new RandomUtility();
 	public WebDriver driver;
 
 	public AdminUsersPage(WebDriver driver) {
 		this.driver = driver;
 		PageFactory.initElements(driver, this);
 	}
-
-	@FindBy(xpath = "//input[@class='form-control' and @placeholder='Username']")
-	private WebElement userNameField;
-	@FindBy(xpath = "//input[@class='form-control' and @placeholder='Password']")
-	private WebElement passwordField;
-	@FindBy(xpath = "//button[@class='btn btn-dark btn-block']")
-	private WebElement signinButton;
 
 	@FindBy(xpath = "(//i[@class='fas fa-arrow-circle-right'])[1]")
 	private WebElement adminMoreInfoIcon;
@@ -42,44 +32,39 @@ public class AdminUsersPage {
 	@FindBy(xpath = "//div[@class='alert alert-success alert-dismissible']")
 	private WebElement alertSuccess;
 
-	public void enterUserNameOnUserNameField(String userName) {
-		userNameField.sendKeys(userName);
-	}
-
-	public void enterPasswordOnPasswordField(String password) {
-		passwordField.sendKeys(password);
-	}
-
-	public void clickonSigninButton() {
-		signinButton.click();
-	}
-	
-	
-	public void clickonAdminUserMoreInfoIcon() {
+	public AdminUsersPage clickonAdminUserMoreInfoIcon() {
 		adminMoreInfoIcon.click();
+		return this;
 	}
 
-	public void clickonNewIcon() {
+	public AdminUsersPage clickonNewIcon() {
 		newIconElement.click();
+		return this;
 	}
-	
-	public void enterNewUserName() {
-		String randomUserName1=randomutility.createaRandomName();
+
+	public AdminUsersPage enterNewUserName() {
+		RandomUtility randomutility = new RandomUtility();
+		String randomUserName1 = randomutility.createaRandomName();
 		newUserNameElement.sendKeys(randomUserName1);
+		return this;
 	}
 
-	public void enterNewPassword() {
-		String randomPassword1=randomutility.createaRandomPassword();
+	public AdminUsersPage enterNewPassword() {
+		RandomUtility randomutility = new RandomUtility();
+		String randomPassword1 = randomutility.createaRandomPassword();
 		newPasswordElement.sendKeys(randomPassword1);
+		return this;
 	}
 
-	public void selectDropdown() {
+	public AdminUsersPage selectDropdown() {
 		PageUtility pagautility = new PageUtility();
 		pagautility.selectClickByVisibleText(dropDownElement, "Partner");
+		return this;
 	}
 
-	public void clickonSaveButton() {
+	public AdminUsersPage clickonSaveButton() {
 		saveField.click();
+		return this;
 	}
 
 	public String alertAvailable() {
@@ -89,13 +74,8 @@ public class AdminUsersPage {
 	}
 
 	public boolean alertSuccessDisplayed() {
-		boolean isAlertSuccessDisplayed=alertSuccess.isDisplayed();
+		boolean isAlertSuccessDisplayed = alertSuccess.isDisplayed();
 		return isAlertSuccessDisplayed;
 	}
-
-	
-
-
-
 
 }

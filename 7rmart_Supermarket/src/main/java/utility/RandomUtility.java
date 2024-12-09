@@ -64,6 +64,9 @@ public class RandomUtility {
 	{
 		return faker.number().numberBetween(12, 1);
 	}
-
+	
+	public String createRandomNews() {
+		return faker.gameOfThrones().character();
+	}
 }
 

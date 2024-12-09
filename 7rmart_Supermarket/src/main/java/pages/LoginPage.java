@@ -22,16 +22,19 @@ public class LoginPage {
 	@FindBy(xpath = "//p[text()='Dashboard']")
 	private WebElement loginSuccess;
 
-	public void enterUserNameOnUserNameField(String userName) {
+	public LoginPage enterUserNameOnUserNameField(String userName) {
 		userNameField.sendKeys(userName);
+		return this;
 	}
 
-	public void enterPasswordOnPasswordField(String password) {
+	public LoginPage enterPasswordOnPasswordField(String password) {
 		passwordField.sendKeys(password);
+		return this;
 	}
 
-	public void clickonSigninButton() {
+	public LoginPage clickonSigninButton() {
 		signinButton.click();
+		return this;
 	}
 
 	public boolean isDashboardAvailable() {
