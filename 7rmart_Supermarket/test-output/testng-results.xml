@@ -2,12 +2,12 @@
 <testng-results ignored="0" total="1" passed="1" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2024-12-10T08:21:19 IST" name="Suite" finished-at="2024-12-10T08:21:30 IST" duration-ms="10860">
+  <suite started-at="2024-12-12T08:43:46 IST" name="Suite" finished-at="2024-12-12T08:43:59 IST" duration-ms="12593">
     <groups>
     </groups>
-    <test started-at="2024-12-10T08:21:19 IST" name="Test" finished-at="2024-12-10T08:21:30 IST" duration-ms="10860">
-      <class name="testscript.CategorySearchTest">
-        <test-method is-config="true" signature="initialiseBrowser(java.lang.String)[pri:0, instance:testscript.CategorySearchTest@27eedb64]" started-at="2024-12-10T08:21:19 IST" name="initialiseBrowser" finished-at="2024-12-10T08:21:26 IST" duration-ms="7514" status="PASS">
+    <test started-at="2024-12-12T08:43:46 IST" name="Test" finished-at="2024-12-12T08:43:59 IST" duration-ms="12593">
+      <class name="testscript.AdminUsersTest">
+        <test-method is-config="true" signature="initialiseBrowser(java.lang.String)[pri:0, instance:testscript.AdminUsersTest@27eedb64]" started-at="2024-12-12T08:43:46 IST" name="initialiseBrowser" finished-at="2024-12-12T08:43:53 IST" duration-ms="6497" status="PASS">
           <params>
             <param index="0">
               <value>
@@ -18,22 +18,22 @@
           <reporter-output>
           </reporter-output>
         </test-method> <!-- initialiseBrowser -->
-        <test-method signature="veryfyUsercanSearchACategoryinListCategoryPage()[pri:0, instance:testscript.CategorySearchTest@27eedb64]" started-at="2024-12-10T08:21:26 IST" name="veryfyUsercanSearchACategoryinListCategoryPage" description="This is for searching a cateogory in List Categories and give matching results" finished-at="2024-12-10T08:21:29 IST" duration-ms="2886" status="PASS">
+        <test-method signature="verifyWhethertheUsercanAddaNewUsernameandPasswordtotheAdminUsersList()[pri:0, instance:testscript.AdminUsersTest@27eedb64]" started-at="2024-12-12T08:43:53 IST" name="verifyWhethertheUsercanAddaNewUsernameandPasswordtotheAdminUsersList" description="This is for add a new user name and password" finished-at="2024-12-12T08:43:58 IST" duration-ms="5694" status="PASS">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- veryfyUsercanSearchACategoryinListCategoryPage -->
-        <test-method is-config="true" signature="driverQuit(org.testng.ITestResult)[pri:0, instance:testscript.CategorySearchTest@27eedb64]" started-at="2024-12-10T08:21:29 IST" name="driverQuit" finished-at="2024-12-10T08:21:30 IST" duration-ms="310" status="PASS">
+        </test-method> <!-- verifyWhethertheUsercanAddaNewUsernameandPasswordtotheAdminUsersList -->
+        <test-method is-config="true" signature="driverQuit(org.testng.ITestResult)[pri:0, instance:testscript.AdminUsersTest@27eedb64]" started-at="2024-12-12T08:43:58 IST" name="driverQuit" finished-at="2024-12-12T08:43:59 IST" duration-ms="328" status="PASS">
           <params>
             <param index="0">
               <value>
-                <![CDATA[[TestResult name=veryfyUsercanSearchACategoryinListCategoryPage status=SUCCESS method=CategorySearchTest.veryfyUsercanSearchACategoryinListCategoryPage()[pri:0, instance:testscript.CategorySearchTest@27eedb64] output={null}]]]>
+                <![CDATA[[TestResult name=verifyWhethertheUsercanAddaNewUsernameandPasswordtotheAdminUsersList status=SUCCESS method=AdminUsersTest.verifyWhethertheUsercanAddaNewUsernameandPasswordtotheAdminUsersList()[pri:0, instance:testscript.AdminUsersTest@27eedb64] output={null}]]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- driverQuit -->
-      </class> <!-- testscript.CategorySearchTest -->
+      </class> <!-- testscript.AdminUsersTest -->
     </test> <!-- Test -->
   </suite> <!-- Suite -->
 </testng-results>

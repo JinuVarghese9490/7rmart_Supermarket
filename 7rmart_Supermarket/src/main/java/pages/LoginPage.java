@@ -32,9 +32,9 @@ public class LoginPage {
 		return this;
 	}
 
-	public LoginPage clickonSigninButton() {
+	public AdminUsersPage clickonSigninButton() {
 		signinButton.click();
-		return this;
+		return new AdminUsersPage(driver);
 	}
 
 	public boolean isDashboardAvailable() {

@@ -1,4 +1,4 @@
-/*package testscript;
+package testscript;
 
 import org.testng.Assert;
 import org.testng.annotations.Test;
@@ -25,4 +25,4 @@ public class SubCategoryTest extends Base {
 		Assert.assertTrue(isSubcategoryCrestedSuccessfully, "Sub Category updation Failed");
 	}
 
-}*/
+}
